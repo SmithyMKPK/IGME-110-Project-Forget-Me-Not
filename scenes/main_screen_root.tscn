@@ -1,0 +1,202 @@
+[gd_scene load_steps=7 format=3 uid="uid://bmw8sws1cljk"]
+
+[ext_resource type="Script" path="res://scenes/main_screen_root.gd" id="1_olby2"]
+[ext_resource type="Texture2D" uid="uid://0heglnjckjdc" path="res://icon.svg" id="1_rs08c"]
+[ext_resource type="Script" path="res://scripts/sign_in_screen.gd" id="1_u31dh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wuxa"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnf6n"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j31l"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[node name="Main Screen Root" type="CanvasLayer"]
+script = ExtResource("1_olby2")
+
+[node name="Bottom Bar Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Botton Bar" type="Panel" parent="Bottom Bar Control"]
+layout_mode = 0
+offset_top = -128.0
+offset_right = 720.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7wuxa")
+
+[node name="Button HBoxContainer" type="HBoxContainer" parent="Bottom Bar Control/Botton Bar"]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 128.0
+theme_override_constants/separation = 130
+alignment = 1
+
+[node name="Undo \'button\'" type="TextureRect" parent="Bottom Bar Control/Botton Bar/Button HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_rs08c")
+
+[node name="Home \'button\'" type="TextureRect" parent="Bottom Bar Control/Botton Bar/Button HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_rs08c")
+
+[node name="Reset \'button\'" type="TextureRect" parent="Bottom Bar Control/Botton Bar/Button HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_rs08c")
+
+[node name="Top Bar Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+
+[node name="Top Bar" type="Panel" parent="Top Bar Control"]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hnf6n")
+
+[node name="Main Screen" type="Panel" parent="."]
+offset_top = 128.0
+offset_right = 720.0
+offset_bottom = 1152.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5j31l")
+
+[node name="Sign In Screen" type="Control" parent="." node_paths=PackedStringArray("usernameEnterer", "passwordEnterer", "errorLabel", "signInLabel", "signUpForgotPasswordContainer", "logInButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u31dh")
+usernameEnterer = NodePath("Main Content Control/Sign in Container/Username Enterer")
+passwordEnterer = NodePath("Main Content Control/Sign in Container/Password Enterer")
+errorLabel = NodePath("Main Content Control/Sign in Container/Error Label")
+signInLabel = NodePath("Main Content Control/Sign in Container/Sign in Label")
+signUpForgotPasswordContainer = NodePath("Main Content Control/Sign in Container/Sign up and forgot password")
+logInButton = NodePath("Main Content Control/Sign in Container/Log In Button")
+
+[node name="Main Content Control" type="Control" parent="Sign In Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sign in Container" type="VBoxContainer" parent="Sign In Screen/Main Content Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 704.0
+offset_bottom = 1136.0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Sign In Screen/Main Content Control/Sign in Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_rs08c")
+stretch_mode = 5
+
+[node name="Subtext Label" type="Label" parent="Sign In Screen/Main Content Control/Sign in Container"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "The One and Only Place to Stalk Your Shit Legally"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Sign in Label" type="Label" parent="Sign In Screen/Main Content Control/Sign in Container"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Aye, Sign in RIGHT NOW!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Username Enterer" type="LineEdit" parent="Sign In Screen/Main Content Control/Sign in Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Enter Username..."
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Password Enterer" type="LineEdit" parent="Sign In Screen/Main Content Control/Sign in Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+placeholder_text = "Enter Password..."
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Sign up and forgot password" type="HBoxContainer" parent="Sign In Screen/Main Content Control/Sign in Container"]
+layout_mode = 2
+alignment = 1
+
+[node name="Sign Up" type="Button" parent="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "New user? Click here!"
+flat = true
+
+[node name="Forgot Password" type="Button" parent="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password"]
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Forgot your password? Click here!"
+flat = true
+alignment = 0
+
+[node name="Log In Button" type="Button" parent="Sign In Screen/Main Content Control/Sign in Container"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+
+[node name="Error Label" type="Label" parent="Sign In Screen/Main Content Control/Sign in Container"]
+visible = false
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="pressed" from="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password/Sign Up" to="Sign In Screen" method="_on_sign_up_pressed"]
+[connection signal="pressed" from="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password/Forgot Password" to="Sign In Screen" method="_on_forgot_password_pressed"]
+[connection signal="pressed" from="Sign In Screen/Main Content Control/Sign in Container/Log In Button" to="Sign In Screen" method="_on_log_in_button_pressed"]
