@@ -1,15 +1,17 @@
-name: 'Godot CI'
+# MIT License
+# Copyright (c) 2018 BARICHELLO
 
+name: 'Godot CI'
 on: 
   push:
     branches: 
-      - release
+      - master
 
 permissions:
   contents: write
 
 env:
-  GODOT_VERSION: 4.5
+  GODOT_VERSION: 4.3
   EXPORT_NAME: placeholder
   PROJECT_PATH: ./
 
@@ -18,28 +20,31 @@ jobs:
     name: Web Export
     runs-on: ubuntu-22.04
     container:
-      image: barichello/godot-ci:4.5
+      image: barichello/godot-ci:4.3
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           lfs: true
 
-      - name: Ensure Export Templates
+      - name: Install dependencies for headless Godot
+        run: |
+          apt-get update
+          apt-get install -y libx11-6 libwayland-client0 libfontconfig1
+
+      - name: Setup Export Templates
         run: |
           mkdir -p ~/.local/share/godot/export_templates/
-          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable || echo "Templates already in place"
+          mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
 
-      - name: Import & Build Project
+      - name: Build Web Export
         run: |
-          cd $PROJECT_PATH
-          # Force Godot to register all scripts, import all assets, and build export
-          godot --editor --no-window --verbose --path . --import
           mkdir -p build/web
           EXPORT_DIR="$(readlink -f build)"
-          godot --editor --no-window --verbose --path . --export-release "Web" "$EXPORT_DIR/web/index.html"
+          cd $PROJECT_PATH
+          godot --headless --verbose --export-release "Web" "$EXPORT_DIR/web/index.html"
 
-      - name: Upload Build Artifact
+      - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: web
@@ -47,7 +52,7 @@ jobs:
 
       - name: Install rsync
         run: |
-          apt-get update && apt-get install -y rsync
+          apt-get install -y rsync
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v4
