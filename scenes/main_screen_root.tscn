@@ -69,7 +69,6 @@ corner_radius_top_right = 10
 [node name="Main Screen Root" type="CanvasLayer" node_paths=PackedStringArray("currentHomeScreen", "validControls", "signInScreen")]
 script = ExtResource("1_olby2")
 currentHomeScreen = NodePath("Sign In Screen")
-badScreenMode = true
 validControls = [NodePath("Sign In Screen"), NodePath("Map Screen"), NodePath("You Screen"), NodePath("Your Stuff Screen")]
 signInScreen = NodePath("Sign In Screen")
 
