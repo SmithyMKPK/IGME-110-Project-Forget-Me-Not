@@ -10,23 +10,24 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: barichello/godot-ci:4.3
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install HTML5 export templates
-        run: |
-          godot --headless --export-template-download
+      - name: Download Godot export templates
+        run: godot --headless --export-template-download
 
       - name: Export HTML5
         run: |
           mkdir -p build/html5
-          godot --headless --export-release "HTML5" build/html5/index.html
+          # Use editor mode with no window to fully initialize the project
+          godot --editor --no-window --export "HTML5" build/html5/index.html
 
       - name: Export Windows
         run: |
           mkdir -p build/windows
-          godot --headless --export-release "Windows Desktop" build/windows/ForgetMeNot.exe
+          godot --editor --no-window --export "Windows Desktop" build/windows/ForgetMeNot.exe
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
