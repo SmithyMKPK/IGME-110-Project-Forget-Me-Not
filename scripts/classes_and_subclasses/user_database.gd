@@ -10,3 +10,10 @@ func findUserdata(username: String, password: String) -> UserData:
 			return data
 	# If it can't find anything, then throw a null into the mix
 	return null
+
+# Method that does does the above, but matches specifically for the password
+func findUserDataWithUsername(username: String) -> UserData:
+	for data in self.database:
+		if data.user == username:
+			return data
+	return null

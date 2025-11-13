@@ -14,11 +14,12 @@ enum ScreenModes
 @export var signInLabel: Label
 @export var signUpForgotPasswordContainer: HBoxContainer
 @export var logInButton: Button
+@export var mapScreen: Control
 
 const SCREEN_CONFIG = {
 	ScreenModes.Sign_in: 
 		{
-		"label_text": "Aye, sign in RIGHT NOW!",
+		"label_text": "Please Sign In.",
 		"username_visible": true,
 		"password_visible": true,
 		"forgot_visible": true,
@@ -26,7 +27,7 @@ const SCREEN_CONFIG = {
 		},
 	ScreenModes.Sign_up: 
 		{
-		"label_text": "Aye, sign up RIGHT NOW!",
+		"label_text": "Grow Every Time You Remember.",
 		"username_visible": true,
 		"password_visible": true,
 		"forgot_visible": false,
@@ -34,8 +35,7 @@ const SCREEN_CONFIG = {
 		},
 	ScreenModes.Forgot_password: 
 		{
-		"label_text": "Wow, you can't keep up with your shit AND your password. Whatever, 
-		enter your username and a new password",
+		"label_text": "Let's Regrow Your Password",
 		"username_visible": true,
 		"password_visible": true,
 		"forgot_visible": false,
@@ -61,8 +61,8 @@ func changeUI():
 	signUpForgotPasswordContainer.visible = config["forgot_visible"]
 	logInButton.text = config["button_text"]
 
-# Method that acts on the log-in button being pressed. What it does will entirely depend on what the current text of the 
-# button
+# Method that acts on the log-in button being pressed. What it does will entirely depend on what the current 
+# text of the button
 func _on_log_in_button_pressed() -> void:
 	var enteredUsername: String = getInputText(usernameEnterer)
 	var enteredPassword: String = getInputText(passwordEnterer)
@@ -90,7 +90,7 @@ func clearInputs() -> void:
 
 func validateInput(username: String, password: String) -> bool:
 	if username == "" or password == "":
-		showError("Is it just me, or did your bitch ass really just try to enter a null value?! Shame on you fucker!", 3.0)
+		showError("Username/Password cannot be a null value.", 3.0)
 		return false
 	return true
 
@@ -99,24 +99,33 @@ func handleLogin(username: String, password: String) -> void:
 	
 	if matchedUserData != null:
 		get_parent().currentUser = matchedUserData
+		get_parent().currentHomeScreen = mapScreen
+		get_parent().add_child(get_parent().currentUser.userTimer)
+		self.visible = false
+		mapScreen.visible = true
 	else:
-		showError("Your username or password is incorrect. Try again you fat, bald, fatty fat... fat fat!", 1.0)
+		showError("Your username or password is incorrect. Please try again.", 1.0)
 
 func handleSignup(username: String, password: String) -> void:
+	for user in userDatabase.database:
+		if user.username == username:
+			showError("Username already exists", 1.0)
+			return
+	
 	userDatabase.database.append(UserData.new(username, password))
 	screenMode = ScreenModes.Sign_in
 	changeUI()
 	showError("Account made successfully!", 1.0)
 
 func handlePasswordReset(username: String, password: String) -> void:
-	var matchedUserData: UserData = userDatabase.findUserData(username, password)
+	var matchedUserData: UserData = userDatabase.findUserDataWithUsername(username)
 	
 	if password != matchedUserData.password:
 		screenMode = ScreenModes.Sign_in
 		changeUI()
 		showError("Password reset successfully!", 1.0)
 	elif password == matchedUserData.password:
-		showError("Wow good job, you guessed the password you forgot! Now, CHANGE THE FUCKING PASSWORD.", 1.5)
+		showError("Password already exists.", 1.5)
 
 func showError(message: String, duration: float) -> void:
 	errorLabel.visible = true
@@ -130,6 +139,13 @@ func _on_sign_up_pressed() -> void:
 	screenMode = ScreenModes.Sign_up
 	changeUI()
 
+# Method that acts on the forgot password button being preesed. It'll take the user to a place to reset their 
+# password
 func _on_forgot_password_pressed() -> void:
 	screenMode = ScreenModes.Forgot_password
+	changeUI()
+
+# Method that acts on the back button being pressed. It returns the user back to the sign in screen.
+func _on_back_button_pressed() -> void:
+	screenMode = ScreenModes.Sign_in
 	changeUI()

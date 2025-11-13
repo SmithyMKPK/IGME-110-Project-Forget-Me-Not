@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsfacgokw71w2"]
+
+[ext_resource type="Script" path="res://scripts/drag_and_droppable_tile.gd" id="1_h10h6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_by0pg"]
+
+[node name="Drag-And-Droppable-Tile" type="TextureRect"]
+custom_minimum_size = Vector2(81, 65)
+offset_right = 84.0
+offset_bottom = 66.0
+expand_mode = 1
+script = ExtResource("1_h10h6")
+seedHolderType = 3
+
+[node name="Invis Panel" type="Panel" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(84, 66)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_by0pg")

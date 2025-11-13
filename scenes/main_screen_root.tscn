@@ -1,18 +1,32 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmw8sws1cljk"]
+[gd_scene load_steps=37 format=3 uid="uid://bmw8sws1cljk"]
 
-[ext_resource type="Script" path="res://scenes/main_screen_root.gd" id="1_olby2"]
-[ext_resource type="Texture2D" uid="uid://0heglnjckjdc" path="res://icon.svg" id="1_rs08c"]
+[ext_resource type="Script" path="res://scripts/main_screen_root.gd" id="1_olby2"]
+[ext_resource type="Texture2D" uid="uid://bm56taq2g0exw" path="res://assets/icon.svg" id="1_rs08c"]
 [ext_resource type="Script" path="res://scripts/sign_in_screen.gd" id="1_u31dh"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wuxa"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnf6n"]
-bg_color = Color(0, 0, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
+[ext_resource type="Texture2D" uid="uid://b0vvpdbeqv2ff" path="res://assets/appfulllogo.png" id="3_h64kv"]
+[ext_resource type="Script" path="res://scripts/map_screen.gd" id="4_kxjj7"]
+[ext_resource type="Texture2D" uid="uid://dt0qxhyvmxx6c" path="res://assets/irl map.png" id="5_43gdg"]
+[ext_resource type="Script" path="res://scripts/you_screen.gd" id="5_rj351"]
+[ext_resource type="Texture2D" uid="uid://btf1xyicwjx5u" path="res://assets/spritesheet_stuffs/big_panel.tres" id="6_hv673"]
+[ext_resource type="Script" path="res://scripts/your_stuff_screen.gd" id="6_lsac3"]
+[ext_resource type="Texture2D" uid="uid://bqsut3otcbh2l" path="res://assets/spritesheet_stuffs/play_button.tres" id="7_1bnfu"]
+[ext_resource type="Script" path="res://scripts/stats_screen.gd" id="7_tge7u"]
+[ext_resource type="Texture2D" uid="uid://cx8mies12frea" path="res://assets/spritesheet_stuffs/profile_button.tres" id="8_sy147"]
+[ext_resource type="Texture2D" uid="uid://b2cbf7ku07vi" path="res://assets/icon1.png" id="11_iyxw6"]
+[ext_resource type="Texture2D" uid="uid://dhehbfi4pckmv" path="res://assets/spritesheet_stuffs/home_button.tres" id="11_tpsj5"]
+[ext_resource type="Texture2D" uid="uid://dqobgyxhs86id" path="res://assets/icon2.png" id="12_to0as"]
+[ext_resource type="Texture2D" uid="uid://dgp2ehhulu7u0" path="res://assets/icon3.png" id="13_f5ge0"]
+[ext_resource type="Texture2D" uid="uid://cc77jl26ubcfo" path="res://assets/icon4.png" id="14_tswvm"]
+[ext_resource type="Texture2D" uid="uid://b8f6co0y0wju4" path="res://assets/icon5.png" id="15_sekg1"]
+[ext_resource type="Script" path="res://scripts/your_garden_screen.gd" id="19_q2b42"]
+[ext_resource type="Texture2D" uid="uid://bpu2p8rhfcj46" path="res://assets/gamemap.png" id="19_vkgup"]
+[ext_resource type="Texture2D" uid="uid://c7lpaop4hcv7q" path="res://assets/spritesheet_stuffs/shop_button.tres" id="20_pbp76"]
+[ext_resource type="Texture2D" uid="uid://dob5an7iesia8" path="res://assets/spritesheet_stuffs/blue_flower.tres" id="21_enrbo"]
+[ext_resource type="Texture2D" uid="uid://bw117aur2hkbh" path="res://assets/spritesheet_stuffs/close_button.tres" id="21_vea8i"]
+[ext_resource type="Texture2D" uid="uid://8xt2bs7bwwq8" path="res://assets/spritesheet_stuffs/red_flower.tres" id="22_bbpy2"]
+[ext_resource type="Texture2D" uid="uid://bne4fdchp1g7m" path="res://assets/spritesheet_stuffs/smexy_flower.tres" id="23_oedmd"]
+[ext_resource type="PackedScene" uid="uid://dsfacgokw71w2" path="res://scenes/drag_and_droppable_tile.tscn" id="26_60ao6"]
+[ext_resource type="Texture2D" uid="uid://wcumpkts0bce" path="res://assets/spritesheet_stuffs/seed_bag.tres" id="27_gp2d1"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j31l"]
 bg_color = Color(1, 1, 1, 1)
@@ -22,8 +36,982 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0, 0, 0, 1)
 
-[node name="Main Screen Root" type="CanvasLayer"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b1y20"]
+texture = ExtResource("6_hv673")
+texture_margin_left = 20.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7yl1t"]
+texture = ExtResource("6_hv673")
+texture_margin_left = 20.0
+expand_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_v4b8a"]
+texture = ExtResource("6_hv673")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pprre"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wedm"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7wuxa"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Theme" id="Theme_cgk6a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnf6n"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+
+[node name="Main Screen Root" type="CanvasLayer" node_paths=PackedStringArray("currentHomeScreen", "validControls", "signInScreen")]
 script = ExtResource("1_olby2")
+currentHomeScreen = NodePath("Sign In Screen")
+badScreenMode = true
+validControls = [NodePath("Sign In Screen"), NodePath("Map Screen"), NodePath("You Screen"), NodePath("Your Stuff Screen")]
+signInScreen = NodePath("Sign In Screen")
+
+[node name="Main Screen" type="Panel" parent="."]
+offset_top = 128.0
+offset_right = 720.0
+offset_bottom = 1152.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5j31l")
+
+[node name="Sign In Screen" type="Control" parent="." node_paths=PackedStringArray("usernameEnterer", "passwordEnterer", "errorLabel", "signInLabel", "signUpForgotPasswordContainer", "logInButton", "mapScreen")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u31dh")
+usernameEnterer = NodePath("Sign in Container/Username Enterer")
+passwordEnterer = NodePath("Sign in Container/Password Enterer")
+errorLabel = NodePath("Sign in Container/Error Label")
+signInLabel = NodePath("Sign in Container/Sign in Label")
+signUpForgotPasswordContainer = NodePath("Sign in Container/Sign up and forgot password")
+logInButton = NodePath("Sign in Container/Log In Button")
+mapScreen = NodePath("../Map Screen")
+
+[node name="Sign in Container" type="VBoxContainer" parent="Sign In Screen"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 704.0
+offset_bottom = 1136.0
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Sign In Screen/Sign in Container"]
+custom_minimum_size = Vector2(450, 450)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("3_h64kv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Subtext Label" type="Label" parent="Sign In Screen/Sign in Container"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Grow to Remember."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Sign in Label" type="Label" parent="Sign In Screen/Sign in Container"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Please Sign In."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Username Enterer" type="LineEdit" parent="Sign In Screen/Sign in Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxTexture_b1y20")
+placeholder_text = "Enter Username..."
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Password Enterer" type="LineEdit" parent="Sign In Screen/Sign in Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxTexture_7yl1t")
+placeholder_text = "Enter Password..."
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+shortcut_keys_enabled = false
+middle_mouse_paste_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Sign up and forgot password" type="HBoxContainer" parent="Sign In Screen/Sign in Container"]
+layout_mode = 2
+alignment = 1
+
+[node name="Sign Up" type="Button" parent="Sign In Screen/Sign in Container/Sign up and forgot password"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
+theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "New user? Click here!"
+flat = true
+
+[node name="Forgot Password" type="Button" parent="Sign In Screen/Sign in Container/Sign up and forgot password"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Forgot your password? Click here!"
+flat = true
+alignment = 0
+
+[node name="Log In Button" type="Button" parent="Sign In Screen/Sign in Container"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 30
+
+[node name="Error Label" type="Label" parent="Sign In Screen/Sign in Container"]
+visible = false
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Map Screen" type="Control" parent="." node_paths=PackedStringArray("map", "youScreen", "yourStuffScreen", "statsScreen", "yourGardenScreen")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_kxjj7")
+map = NodePath("Map")
+youScreen = NodePath("../You Screen")
+yourStuffScreen = NodePath("../Your Stuff Screen")
+statsScreen = NodePath("../Stats Screen")
+yourGardenScreen = NodePath("../Your Garden screen")
+
+[node name="Map" type="TextureRect" parent="Map Screen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 138.0
+offset_right = 709.0
+offset_bottom = 1144.0
+texture = ExtResource("5_43gdg")
+expand_mode = 1
+
+[node name="My Stuff Outline" type="Panel" parent="Map Screen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 1016.0
+offset_right = 712.0
+offset_bottom = 1142.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_v4b8a")
+
+[node name="Bottom Button Container" type="HBoxContainer" parent="Map Screen"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 1016.0
+offset_right = 716.0
+offset_bottom = 1133.0
+theme_override_constants/separation = 8
+
+[node name="Your Items Button" type="Button" parent="Map Screen/Bottom Button Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "My Stuff"
+flat = true
+
+[node name="Stats Button" type="Button" parent="Map Screen/Bottom Button Container"]
+custom_minimum_size = Vector2(125, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 50
+text = "Stats"
+flat = true
+
+[node name="Enter Garden Button" type="Button" parent="Map Screen"]
+custom_minimum_size = Vector2(124, 128)
+layout_mode = 2
+offset_left = 472.0
+offset_top = 856.0
+offset_right = 713.0
+offset_bottom = 1019.0
+theme_override_font_sizes/font_size = 30
+icon = ExtResource("7_1bnfu")
+flat = true
+icon_alignment = 2
+expand_icon = true
+
+[node name="Your Profile Button" type="Button" parent="Map Screen"]
+layout_mode = 2
+offset_left = 8.0
+offset_top = 136.0
+offset_right = 200.0
+offset_bottom = 270.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 45
+icon = ExtResource("8_sy147")
+flat = true
+expand_icon = true
+
+[node name="You Screen" type="Control" parent="." node_paths=PackedStringArray("usernameLabel", "passwordLabel", "signInScreen")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+script = ExtResource("5_rj351")
+usernameLabel = NodePath("Scrollbar/You Container/Your Username Container/Username Label")
+passwordLabel = NodePath("Scrollbar/You Container/Your Password Container/Password Label")
+signInScreen = NodePath("../Sign In Screen")
+
+[node name="Scrollbar" type="ScrollContainer" parent="You Screen"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 704.0
+offset_bottom = 1136.0
+
+[node name="You Container" type="VBoxContainer" parent="You Screen/Scrollbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="You Image" type="TextureRect" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("8_sy147")
+
+[node name="Subtext" type="Label" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "My Profile + Settings"
+horizontal_alignment = 1
+
+[node name="Panel Separater" type="Panel" parent="You Screen/Scrollbar/You Container"]
+custom_minimum_size = Vector2(688, 10)
+layout_mode = 2
+
+[node name="Anti-Troll Message" type="Label" parent="You Screen/Scrollbar/You Container"]
+custom_minimum_size = Vector2(2, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Note that we know how our users operate, thus have gone through \"extensive\" measures to ensure that the potential for trolling is kept to a minimum."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Panel Separater2" type="Panel" parent="You Screen/Scrollbar/You Container"]
+custom_minimum_size = Vector2(688, 10)
+layout_mode = 2
+
+[node name="Security Settings Label" type="Label" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Security Settings"
+horizontal_alignment = 1
+
+[node name="Your Username Container" type="HBoxContainer" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+
+[node name="Your username label" type="Label" parent="You Screen/Scrollbar/You Container/Your Username Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "My Username"
+horizontal_alignment = 1
+
+[node name="Username Label" type="Label" parent="You Screen/Scrollbar/You Container/Your Username Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="Your Password Container" type="HBoxContainer" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+
+[node name="Your password label" type="Label" parent="You Screen/Scrollbar/You Container/Your Password Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "My Password"
+horizontal_alignment = 1
+
+[node name="Password Label" type="Label" parent="You Screen/Scrollbar/You Container/Your Password Container"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="Forgot Password Button" type="Button" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Forgot your password? Click here!"
+flat = true
+
+[node name="Panel Separater3" type="Panel" parent="You Screen/Scrollbar/You Container"]
+custom_minimum_size = Vector2(688, 10)
+layout_mode = 2
+
+[node name="Security Settings Label2" type="Label" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Quality of Life Settings"
+horizontal_alignment = 1
+
+[node name="PSA Label" type="Label" parent="You Screen/Scrollbar/You Container"]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Please note that most of these settings are completed/implimented once other major aspects of this is completed. In a nutshell... not everything here will be done, so we apologize for the potential inconveience. "
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Dark Mode Checkbox" type="CheckBox" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Dark Mode"
+alignment = 2
+
+[node name="Text Size Label" type="Label" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Text Size"
+horizontal_alignment = 1
+
+[node name="Text Size Slider" type="HSlider" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+min_value = 1.0
+max_value = 3.0
+value = 2.0
+
+[node name="Panel Separater4" type="Panel" parent="You Screen/Scrollbar/You Container"]
+custom_minimum_size = Vector2(688, 10)
+layout_mode = 2
+
+[node name="Credits Label" type="Label" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Credits"
+horizontal_alignment = 1
+
+[node name="Panel Separater5" type="Panel" parent="You Screen/Scrollbar/You Container"]
+custom_minimum_size = Vector2(688, 10)
+layout_mode = 2
+
+[node name="Log Out Label" type="Label" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Log Out"
+horizontal_alignment = 1
+
+[node name="Log Out Button" type="Button" parent="You Screen/Scrollbar/You Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Log Out"
+
+[node name="Your Stuff Screen" type="Control" parent="." node_paths=PackedStringArray("itemsContainer", "iconScroller", "userHUD", "HUDTitle", "itemNameHeader", "itemIconHeader", "selectedItemHeader", "errorLabel", "selectedIconImage", "nameSelector", "confirmButton")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_lsac3")
+itemsContainer = NodePath("Scrollbar/Items Container")
+iconScroller = NodePath("User MS HUD/Create-Edit Item Container/Icon Scroller")
+userHUD = NodePath("User MS HUD")
+HUDTitle = NodePath("User MS HUD/Create-Edit Item Container/New Item label")
+itemNameHeader = NodePath("User MS HUD/Create-Edit Item Container/New Item Name Label")
+itemIconHeader = NodePath("User MS HUD/Create-Edit Item Container/Select Icon Label")
+selectedItemHeader = NodePath("User MS HUD/Create-Edit Item Container/Selected Icon Label")
+errorLabel = NodePath("User MS HUD/Create-Edit Item Container/Error Label")
+selectedIconImage = NodePath("User MS HUD/Create-Edit Item Container/Selected Icon")
+nameSelector = NodePath("User MS HUD/Create-Edit Item Container/Name Selector")
+confirmButton = NodePath("User MS HUD/Create-Edit Item Container/Confirm Button")
+
+[node name="Scrollbar" type="ScrollContainer" parent="Your Stuff Screen"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 704.0
+offset_bottom = 1136.0
+
+[node name="Items Container" type="VBoxContainer" parent="Your Stuff Screen/Scrollbar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title Label" type="Label" parent="Your Stuff Screen/Scrollbar/Items Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "My Stuff"
+horizontal_alignment = 1
+
+[node name="Add New Item Button" type="Button" parent="Your Stuff Screen/Scrollbar/Items Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Add New Item"
+
+[node name="User MS HUD" type="Panel" parent="Your Stuff Screen"]
+visible = false
+layout_mode = 0
+offset_left = 176.0
+offset_top = 384.0
+offset_right = 536.0
+offset_bottom = 834.0
+
+[node name="Create-Edit Item Container" type="VBoxContainer" parent="Your Stuff Screen/User MS HUD"]
+layout_mode = 0
+offset_right = 360.0
+offset_bottom = 450.0
+
+[node name="New Item label" type="Label" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "NEW ITEM"
+horizontal_alignment = 1
+
+[node name="New Item Name Label" type="Label" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Name Selector" type="LineEdit" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+placeholder_text = "Name your item..."
+
+[node name="Select Icon Label" type="Label" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Icon"
+horizontal_alignment = 1
+
+[node name="Icon Scroller" type="ScrollContainer" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+custom_minimum_size = Vector2(0, 136)
+layout_mode = 2
+
+[node name="Button Scroller" type="HBoxContainer" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller"]
+layout_mode = 2
+
+[node name="Icon 1" type="Button" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("11_iyxw6")
+expand_icon = true
+
+[node name="Icon 2" type="Button" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("12_to0as")
+expand_icon = true
+
+[node name="Icon 3" type="Button" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("13_f5ge0")
+expand_icon = true
+
+[node name="Icon 4" type="Button" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("14_tswvm")
+expand_icon = true
+
+[node name="Icon 5" type="Button" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+icon = ExtResource("15_sekg1")
+expand_icon = true
+
+[node name="Selected Icon Label" type="Label" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Selected Icon"
+horizontal_alignment = 1
+
+[node name="Selected Icon" type="TextureRect" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+texture = ExtResource("1_rs08c")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Error Label" type="Label" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="Confirm Button" type="Button" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "CREATE"
+
+[node name="Cancel Button" type="Button" parent="Your Stuff Screen/User MS HUD/Create-Edit Item Container"]
+layout_mode = 2
+size_flags_vertical = 10
+text = "CANCEL"
+
+[node name="Stats Screen" type="Control" parent="." node_paths=PackedStringArray("statScreen", "claimButton", "mostCommonAnswer", "lostCation", "progressBar")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("7_tge7u")
+statScreen = NodePath("Stat Screen")
+claimButton = NodePath("Stat Screen/Time Spent Container/Claim Button")
+mostCommonAnswer = NodePath("Stat Screen/Most Common Answer")
+lostCation = NodePath("Stat Screen/LostCation Answer")
+progressBar = NodePath("Stat Screen/Time Spent Container/Current Time Bar")
+
+[node name="Stat Screen" type="VBoxContainer" parent="Stats Screen"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 144.0
+offset_right = 704.0
+offset_bottom = 1136.0
+alignment = 1
+
+[node name="Failed Image" type="TextureRect" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_rs08c")
+stretch_mode = 3
+
+[node name="Failed Title" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "You Have No Items..."
+horizontal_alignment = 1
+
+[node name="Failed Subtitle" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Seriously, how the heck did you expect to get statistics based on nothing? We're not genies..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Title Label" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "MY STATS"
+horizontal_alignment = 1
+
+[node name="Panel Separater" type="Panel" parent="Stats Screen/Stat Screen"]
+visible = false
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Most Common Header" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Most Commonly Left Item:"
+horizontal_alignment = 1
+
+[node name="Most Common Answer" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="Panel Separater2" type="Panel" parent="Stats Screen/Stat Screen"]
+visible = false
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Lostcation Header" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+tooltip_text = "What's a LossCation you may ask? It's known as the Lost Location! It's essentially the most common place you leave your items!"
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Biggest \"LostCation\"*"
+horizontal_alignment = 1
+
+[node name="LostCation Answer" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+horizontal_alignment = 1
+
+[node name="Panel Separater3" type="Panel" parent="Stats Screen/Stat Screen"]
+visible = false
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
+[node name="Milestones Title" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+tooltip_text = "What's a LossCation you may ask? It's known as the Lost Location! It's essentially the most common place you leave your items!"
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "MILESTONES"
+horizontal_alignment = 1
+
+[node name="Panel Separater4" type="Panel" parent="Stats Screen/Stat Screen"]
+visible = false
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Time Spent Header" type="Label" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+tooltip_text = "What's a LossCation you may ask? It's known as the Lost Location! It's essentially the most common place you leave your items!"
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Time Spent W/ Your Items"
+horizontal_alignment = 1
+
+[node name="Time Spent Container" type="HBoxContainer" parent="Stats Screen/Stat Screen"]
+visible = false
+layout_mode = 2
+
+[node name="Current Time Container" type="Label" parent="Stats Screen/Stat Screen/Time Spent Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Current Time Bar" type="ProgressBar" parent="Stats Screen/Stat Screen/Time Spent Container"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_pprre")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4wedm")
+max_value = 30.0
+step = 1.0
+rounded = true
+
+[node name="Target Time Container" type="Label" parent="Stats Screen/Stat Screen/Time Spent Container"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "00:30"
+
+[node name="Claim Button" type="Button" parent="Stats Screen/Stat Screen/Time Spent Container"]
+layout_mode = 2
+size_flags_horizontal = 10
+disabled = true
+text = "CLAIM"
+icon = ExtResource("1_rs08c")
+
+[node name="Your Garden screen" type="Control" parent="." node_paths=PackedStringArray("flowerContainer", "shopGrid", "blueFlowerContainer", "redFlowerContainer", "smexyFlowerContainer", "redFlowerTexture", "blueFlowerTexture", "smexyFlowerTexture", "popupUI", "yourSeedsPopup", "titleText", "infoLabel")]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 720.0
+offset_bottom = 1280.0
+script = ExtResource("19_q2b42")
+flowerContainer = NodePath("Flower Container")
+shopGrid = NodePath("Popup UI/Shop Grid")
+blueFlowerContainer = NodePath("Popup UI/Shop Grid/Blue Flower Container")
+redFlowerContainer = NodePath("Popup UI/Shop Grid/Red Flower Container")
+smexyFlowerContainer = NodePath("Popup UI/Shop Grid/Smexy Flower Container")
+redFlowerTexture = NodePath("Your Seeds Popup/Your Seeds Container/Red Flower Holder")
+blueFlowerTexture = NodePath("Your Seeds Popup/Your Seeds Container/Blue Flower Holder")
+smexyFlowerTexture = NodePath("Your Seeds Popup/Your Seeds Container/Smexy Flower Holder")
+popupUI = NodePath("Popup UI")
+yourSeedsPopup = NodePath("Your Seeds Popup")
+titleText = NodePath("Popup UI/Title Text")
+infoLabel = NodePath("Popup UI/Information Label")
+
+[node name="Garden Sprite" type="TextureRect" parent="Your Garden screen"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 138.0
+offset_right = 710.0
+offset_bottom = 1142.0
+texture = ExtResource("19_vkgup")
+expand_mode = 1
+
+[node name="Flower Container" type="GridContainer" parent="Your Garden screen"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 384.0
+offset_right = 684.0
+offset_bottom = 1102.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[node name="Garden UI Panel" type="Panel" parent="Your Garden screen"]
+layout_mode = 0
+offset_left = 608.0
+offset_top = 138.0
+offset_right = 710.0
+offset_bottom = 368.0
+
+[node name="UI Container" type="VBoxContainer" parent="Your Garden screen/Garden UI Panel"]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 230.0
+
+[node name="Information Button" type="Button" parent="Your Garden screen/Garden UI Panel/UI Container"]
+layout_mode = 2
+size_flags_vertical = 3
+flat = true
+expand_icon = true
+
+[node name="Shop Button" type="Button" parent="Your Garden screen/Garden UI Panel/UI Container"]
+layout_mode = 2
+size_flags_vertical = 3
+icon = ExtResource("20_pbp76")
+flat = true
+expand_icon = true
+
+[node name="Popup UI" type="Panel" parent="Your Garden screen"]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 432.0
+offset_right = 608.0
+offset_bottom = 920.0
+
+[node name="Title Text" type="Label" parent="Your Garden screen/Popup UI"]
+layout_mode = 0
+offset_right = 488.0
+offset_bottom = 80.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+
+[node name="Information Label" type="Label" parent="Your Garden screen/Popup UI"]
+visible = false
+layout_mode = 0
+offset_top = 80.0
+offset_right = 488.0
+offset_bottom = 488.0
+theme_override_font_sizes/font_size = 25
+text = "Welcome to your own personalized garden! Earn achievements in the Stats page to gain Garden Gelt to buy seeds to many beautiful flowers and other plants! Press the seed bag to open your bag of seeds and begin planting! To remove a flower, simply click on it and press the delete button! It'll go back in your seed sack for future use!"
+autowrap_mode = 2
+
+[node name="Shop Grid" type="GridContainer" parent="Your Garden screen/Popup UI"]
+visible = false
+layout_mode = 0
+offset_top = 80.0
+offset_right = 488.0
+offset_bottom = 488.0
+columns = 2
+
+[node name="Blue Flower Container" type="VBoxContainer" parent="Your Garden screen/Popup UI/Shop Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Blue Flower Texture" type="TextureRect" parent="Your Garden screen/Popup UI/Shop Grid/Blue Flower Container"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+texture = ExtResource("21_enrbo")
+expand_mode = 1
+
+[node name="Name of Blue Flower Label" type="Label" parent="Your Garden screen/Popup UI/Shop Grid/Blue Flower Container"]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Buy Button" type="Button" parent="Your Garden screen/Popup UI/Shop Grid/Blue Flower Container"]
+layout_mode = 2
+disabled = true
+text = "BUY (50 GG)"
+
+[node name="Red Flower Container" type="VBoxContainer" parent="Your Garden screen/Popup UI/Shop Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Red Flower Texture" type="TextureRect" parent="Your Garden screen/Popup UI/Shop Grid/Red Flower Container"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+texture = ExtResource("22_bbpy2")
+expand_mode = 1
+
+[node name="Name of Red Flower Label" type="Label" parent="Your Garden screen/Popup UI/Shop Grid/Red Flower Container"]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Buy Button" type="Button" parent="Your Garden screen/Popup UI/Shop Grid/Red Flower Container"]
+layout_mode = 2
+disabled = true
+text = "BUY (50 GG)"
+
+[node name="Smexy Flower Container" type="VBoxContainer" parent="Your Garden screen/Popup UI/Shop Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Smexy Flower Texture" type="TextureRect" parent="Your Garden screen/Popup UI/Shop Grid/Smexy Flower Container"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+texture = ExtResource("23_oedmd")
+expand_mode = 1
+
+[node name="Name of Smexy Flower Label" type="Label" parent="Your Garden screen/Popup UI/Shop Grid/Smexy Flower Container"]
+layout_mode = 2
+text = "Name"
+horizontal_alignment = 1
+
+[node name="Buy Button" type="Button" parent="Your Garden screen/Popup UI/Shop Grid/Smexy Flower Container"]
+layout_mode = 2
+text = "BUY (50 GG)"
+flat = true
+
+[node name="Coming Soon Flower Container" type="VBoxContainer" parent="Your Garden screen/Popup UI/Shop Grid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Coming Soon Flower Texture" type="TextureRect" parent="Your Garden screen/Popup UI/Shop Grid/Coming Soon Flower Container"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Name of Coming Soon Flower Label" type="Label" parent="Your Garden screen/Popup UI/Shop Grid/Coming Soon Flower Container"]
+layout_mode = 2
+text = "Coming Soon..."
+horizontal_alignment = 1
+
+[node name="Buy Button" type="Button" parent="Your Garden screen/Popup UI/Shop Grid/Coming Soon Flower Container"]
+layout_mode = 2
+disabled = true
+text = "BUY (50 GG)"
+
+[node name="Exit Button" type="Button" parent="Your Garden screen/Popup UI"]
+layout_mode = 0
+offset_left = 432.0
+offset_top = -24.0
+offset_right = 528.0
+offset_bottom = 56.0
+icon = ExtResource("21_vea8i")
+flat = true
+expand_icon = true
+
+[node name="Your Seeds Popup" type="Panel" parent="Your Garden screen"]
+layout_mode = 0
+offset_top = 1152.0
+offset_right = 720.0
+offset_bottom = 1248.0
+
+[node name="Your Seeds Title" type="Label" parent="Your Garden screen/Your Seeds Popup"]
+layout_mode = 0
+offset_right = 720.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 22
+text = "YOUR SEEDS"
+horizontal_alignment = 1
+
+[node name="Your Seeds Container" type="HBoxContainer" parent="Your Garden screen/Your Seeds Popup"]
+layout_mode = 0
+offset_top = 32.0
+offset_right = 720.0
+offset_bottom = 96.0
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Red Flower Holder" parent="Your Garden screen/Your Seeds Popup/Your Seeds Container" node_paths=PackedStringArray("seedCountLabel") instance=ExtResource("26_60ao6")]
+layout_mode = 2
+texture = ExtResource("22_bbpy2")
+isSeedHolder = true
+seedHolderType = 1
+seedCountLabel = NodePath("Seed Counter")
+
+[node name="Seed Counter" type="Label" parent="Your Garden screen/Your Seeds Popup/Your Seeds Container/Red Flower Holder"]
+layout_mode = 0
+offset_left = 43.0
+offset_right = 83.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+
+[node name="Blue Flower Holder" parent="Your Garden screen/Your Seeds Popup/Your Seeds Container" node_paths=PackedStringArray("seedCountLabel") instance=ExtResource("26_60ao6")]
+layout_mode = 2
+texture = ExtResource("21_enrbo")
+isSeedHolder = true
+seedHolderType = 0
+seedCountLabel = NodePath("Seed Counter")
+
+[node name="Seed Counter" type="Label" parent="Your Garden screen/Your Seeds Popup/Your Seeds Container/Blue Flower Holder"]
+layout_mode = 0
+offset_left = 41.0
+offset_right = 81.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+
+[node name="Smexy Flower Holder" parent="Your Garden screen/Your Seeds Popup/Your Seeds Container" node_paths=PackedStringArray("seedCountLabel") instance=ExtResource("26_60ao6")]
+layout_mode = 2
+texture = ExtResource("23_oedmd")
+isSeedHolder = true
+seedHolderType = 2
+seedCountLabel = NodePath("Seed Counter")
+
+[node name="Seed Counter" type="Label" parent="Your Garden screen/Your Seeds Popup/Your Seeds Container/Smexy Flower Holder"]
+layout_mode = 0
+offset_left = 39.0
+offset_right = 79.0
+offset_bottom = 23.0
+horizontal_alignment = 1
+
+[node name="Bag of Seeds Button" type="Button" parent="Your Garden screen"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 264.0
+offset_right = 216.0
+offset_bottom = 385.0
+toggle_mode = true
+icon = ExtResource("27_gp2d1")
+flat = true
+expand_icon = true
 
 [node name="Bottom Bar Control" type="Control" parent="."]
 layout_mode = 3
@@ -47,17 +1035,13 @@ offset_bottom = 128.0
 theme_override_constants/separation = 130
 alignment = 1
 
-[node name="Undo \'button\'" type="TextureRect" parent="Bottom Bar Control/Botton Bar/Button HBoxContainer"]
+[node name="Home Button" type="Button" parent="Bottom Bar Control/Botton Bar/Button HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("1_rs08c")
-
-[node name="Home \'button\'" type="TextureRect" parent="Bottom Bar Control/Botton Bar/Button HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_rs08c")
-
-[node name="Reset \'button\'" type="TextureRect" parent="Bottom Bar Control/Botton Bar/Button HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_rs08c")
+theme = SubResource("Theme_cgk6a")
+icon = ExtResource("11_tpsj5")
+flat = true
+expand_icon = true
 
 [node name="Top Bar Control" type="Control" parent="."]
 layout_mode = 3
@@ -71,132 +1055,37 @@ offset_right = 720.0
 offset_bottom = 128.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hnf6n")
 
-[node name="Main Screen" type="Panel" parent="."]
-offset_top = 128.0
-offset_right = 720.0
-offset_bottom = 1152.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_5j31l")
-
-[node name="Sign In Screen" type="Control" parent="." node_paths=PackedStringArray("usernameEnterer", "passwordEnterer", "errorLabel", "signInLabel", "signUpForgotPasswordContainer", "logInButton")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_u31dh")
-usernameEnterer = NodePath("Main Content Control/Sign in Container/Username Enterer")
-passwordEnterer = NodePath("Main Content Control/Sign in Container/Password Enterer")
-errorLabel = NodePath("Main Content Control/Sign in Container/Error Label")
-signInLabel = NodePath("Main Content Control/Sign in Container/Sign in Label")
-signUpForgotPasswordContainer = NodePath("Main Content Control/Sign in Container/Sign up and forgot password")
-logInButton = NodePath("Main Content Control/Sign in Container/Log In Button")
-
-[node name="Main Content Control" type="Control" parent="Sign In Screen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Sign in Container" type="VBoxContainer" parent="Sign In Screen/Main Content Control"]
-layout_mode = 0
-offset_left = 16.0
-offset_top = 144.0
-offset_right = 704.0
-offset_bottom = 1136.0
-theme_override_constants/separation = 15
-alignment = 1
-
-[node name="Logo" type="TextureRect" parent="Sign In Screen/Main Content Control/Sign in Container"]
-layout_mode = 2
-size_flags_horizontal = 4
-texture = ExtResource("1_rs08c")
-stretch_mode = 5
-
-[node name="Subtext Label" type="Label" parent="Sign In Screen/Main Content Control/Sign in Container"]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "The One and Only Place to Stalk Your Shit Legally"
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[node name="Sign in Label" type="Label" parent="Sign In Screen/Main Content Control/Sign in Container"]
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "Aye, Sign in RIGHT NOW!"
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="Username Enterer" type="LineEdit" parent="Sign In Screen/Main Content Control/Sign in Container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-placeholder_text = "Enter Username..."
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-shortcut_keys_enabled = false
-middle_mouse_paste_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
-[node name="Password Enterer" type="LineEdit" parent="Sign In Screen/Main Content Control/Sign in Container"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-placeholder_text = "Enter Password..."
-context_menu_enabled = false
-virtual_keyboard_enabled = false
-shortcut_keys_enabled = false
-middle_mouse_paste_enabled = false
-selecting_enabled = false
-deselect_on_focus_loss_enabled = false
-drag_and_drop_selection_enabled = false
-
-[node name="Sign up and forgot password" type="HBoxContainer" parent="Sign In Screen/Main Content Control/Sign in Container"]
-layout_mode = 2
-alignment = 1
-
-[node name="Sign Up" type="Button" parent="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password"]
-layout_mode = 2
-size_flags_horizontal = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 1, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 1, 1)
-theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "New user? Click here!"
-flat = true
-
-[node name="Forgot Password" type="Button" parent="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password"]
-layout_mode = 2
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 1, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 1, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-text = "Forgot your password? Click here!"
-flat = true
-alignment = 0
-
-[node name="Log In Button" type="Button" parent="Sign In Screen/Main Content Control/Sign in Container"]
-layout_mode = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 30
-
-[node name="Error Label" type="Label" parent="Sign In Screen/Main Content Control/Sign in Container"]
-visible = false
-custom_minimum_size = Vector2(1, 1)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
-horizontal_alignment = 1
-autowrap_mode = 2
-
-[connection signal="pressed" from="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password/Sign Up" to="Sign In Screen" method="_on_sign_up_pressed"]
-[connection signal="pressed" from="Sign In Screen/Main Content Control/Sign in Container/Sign up and forgot password/Forgot Password" to="Sign In Screen" method="_on_forgot_password_pressed"]
-[connection signal="pressed" from="Sign In Screen/Main Content Control/Sign in Container/Log In Button" to="Sign In Screen" method="_on_log_in_button_pressed"]
+[connection signal="pressed" from="Sign In Screen/Sign in Container/Sign up and forgot password/Sign Up" to="Sign In Screen" method="_on_sign_up_pressed"]
+[connection signal="pressed" from="Sign In Screen/Sign in Container/Sign up and forgot password/Forgot Password" to="Sign In Screen" method="_on_forgot_password_pressed"]
+[connection signal="pressed" from="Sign In Screen/Sign in Container/Log In Button" to="Sign In Screen" method="_on_log_in_button_pressed"]
+[connection signal="visibility_changed" from="Map Screen" to="Map Screen" method="_on_visibility_changed"]
+[connection signal="pressed" from="Map Screen/Bottom Button Container/Your Items Button" to="Map Screen" method="_on_your_items_button_pressed"]
+[connection signal="pressed" from="Map Screen/Bottom Button Container/Stats Button" to="Map Screen" method="_on_stats_button_pressed"]
+[connection signal="pressed" from="Map Screen/Enter Garden Button" to="Map Screen" method="_on_enter_garden_button_pressed"]
+[connection signal="pressed" from="Map Screen/Your Profile Button" to="Map Screen" method="_on_your_profile_button_pressed"]
+[connection signal="visibility_changed" from="You Screen" to="You Screen" method="_on_visibility_changed"]
+[connection signal="pressed" from="You Screen/Scrollbar/You Container/Forgot Password Button" to="You Screen" method="_on_forgot_password_button_pressed"]
+[connection signal="pressed" from="You Screen/Scrollbar/You Container/Log Out Button" to="You Screen" method="_on_log_out_button_pressed"]
+[connection signal="visibility_changed" from="Your Stuff Screen" to="Your Stuff Screen" method="_on_visibility_changed"]
+[connection signal="pressed" from="Your Stuff Screen/Scrollbar/Items Container/Add New Item Button" to="Your Stuff Screen" method="_on_add_new_item_button_pressed"]
+[connection signal="pressed" from="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller/Icon 1" to="Your Stuff Screen" method="_on_icon_pressed" binds= [0]]
+[connection signal="pressed" from="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller/Icon 2" to="Your Stuff Screen" method="_on_icon_pressed" binds= [1]]
+[connection signal="pressed" from="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller/Icon 3" to="Your Stuff Screen" method="_on_icon_pressed" binds= [2]]
+[connection signal="pressed" from="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller/Icon 4" to="Your Stuff Screen" method="_on_icon_pressed" binds= [3]]
+[connection signal="pressed" from="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Icon Scroller/Button Scroller/Icon 5" to="Your Stuff Screen" method="_on_icon_pressed" binds= [4]]
+[connection signal="pressed" from="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Confirm Button" to="Your Stuff Screen" method="_on_new_item_confirm_button_pressed"]
+[connection signal="pressed" from="Your Stuff Screen/User MS HUD/Create-Edit Item Container/Cancel Button" to="Your Stuff Screen" method="_on_cancel_button_pressed"]
+[connection signal="visibility_changed" from="Stats Screen" to="Stats Screen" method="_on_visibility_changed"]
+[connection signal="pressed" from="Stats Screen/Stat Screen/Time Spent Container/Claim Button" to="Stats Screen" method="_on_claim_button_pressed"]
+[connection signal="visibility_changed" from="Your Garden screen" to="Your Garden screen" method="_on_visibility_changed"]
+[connection signal="pressed" from="Your Garden screen/Garden UI Panel/UI Container/Information Button" to="Your Garden screen" method="_on_information_button_pressed"]
+[connection signal="pressed" from="Your Garden screen/Garden UI Panel/UI Container/Shop Button" to="Your Garden screen" method="_on_shop_button_pressed"]
+[connection signal="pressed" from="Your Garden screen/Popup UI/Shop Grid/Blue Flower Container/Buy Button" to="Your Garden screen" method="_on_buy_button_pressed" binds= ["Blue"]]
+[connection signal="pressed" from="Your Garden screen/Popup UI/Shop Grid/Red Flower Container/Buy Button" to="Your Garden screen" method="_on_buy_button_pressed" binds= ["Red"]]
+[connection signal="pressed" from="Your Garden screen/Popup UI/Shop Grid/Smexy Flower Container/Buy Button" to="Your Garden screen" method="_on_buy_button_pressed" binds= ["Smexy"]]
+[connection signal="pressed" from="Your Garden screen/Popup UI/Exit Button" to="Your Garden screen" method="_on_exit_button_pressed"]
+[connection signal="dropped_flower" from="Your Garden screen/Your Seeds Popup/Your Seeds Container/Red Flower Holder" to="Your Garden screen" method="_on_red_flower_holder_dropped_flower"]
+[connection signal="dropped_flower" from="Your Garden screen/Your Seeds Popup/Your Seeds Container/Blue Flower Holder" to="Your Garden screen" method="_on_blue_flower_holder_dropped_flower"]
+[connection signal="dropped_flower" from="Your Garden screen/Your Seeds Popup/Your Seeds Container/Smexy Flower Holder" to="Your Garden screen" method="_on_smexy_flower_holder_dropped_flower"]
+[connection signal="toggled" from="Your Garden screen/Bag of Seeds Button" to="Your Garden screen" method="_on_bag_of_seeds_button_toggled"]
+[connection signal="pressed" from="Bottom Bar Control/Botton Bar/Button HBoxContainer/Home Button" to="." method="_on_home_button_pressed"]
