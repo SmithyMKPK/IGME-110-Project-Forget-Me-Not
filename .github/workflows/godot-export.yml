@@ -5,7 +5,7 @@ name: 'Godot CI'
 on: 
   push:
     branches: 
-      - master
+      - release
 
 permissions:
   contents: write
@@ -13,7 +13,7 @@ permissions:
 env:
   GODOT_VERSION: 4.3
   EXPORT_NAME: placeholder
-  PROJECT_PATH: ./
+  PROJECT_PATH: .
 
 jobs:
   export-web:
