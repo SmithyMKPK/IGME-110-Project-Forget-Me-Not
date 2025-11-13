@@ -1,0 +1,31 @@
+name: Godot Export
+
+on:
+  push:
+    branches: [ "release" ]
+  workflow_dispatch:
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    container:
+      image: barichello/godot-ci:4.3
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Export HTML5
+        run: |
+          mkdir -p build/html5
+          godot --headless --export-release "HTML5" build/html5/index.html
+
+      - name: Export Windows
+        run: |
+          mkdir -p build/windows
+          godot --headless --export-release "Windows Desktop" build/windows/ForgetMeNot.exe
+
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: ForgetMeNot_Builds
+          path: build
