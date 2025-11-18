@@ -60,6 +60,12 @@ func changeUI():
 	passwordEnterer.visible = config["password_visible"]
 	signUpForgotPasswordContainer.visible = config["forgot_visible"]
 	logInButton.text = config["button_text"]
+	
+	match int(screenMode):
+		0, 1:
+			get_parent().styleBoxPanel.bg_color = Color("e9f1fb")
+		2:
+			get_parent().styleBoxPanel.bg_color = Color("bdd9ec")
 
 # Method that acts on the log-in button being pressed. What it does will entirely depend on what the current 
 # text of the button
