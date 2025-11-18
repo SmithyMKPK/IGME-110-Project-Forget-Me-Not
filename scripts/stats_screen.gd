@@ -12,6 +12,7 @@ var RNG: RandomNumberGenerator = RandomNumberGenerator.new()
 # provides "statistics" on them. If not, it'll present a "failsafe"
 func _on_visibility_changed() -> void:
 	if self.visible:
+		get_parent().styleBoxPanel.bg_color = Color("a1c0d7")
 		if get_parent().currentUser.registeredItems.size() == 0:
 			showResults(false)
 		else:

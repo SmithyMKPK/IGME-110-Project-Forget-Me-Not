@@ -1,6 +1,6 @@
 extends Control
 
-@export var map: TextureRect
+@export var map: Control
 @export var youScreen: Control
 @export var yourStuffScreen: Control
 @export var statsScreen: Control
@@ -15,6 +15,7 @@ func _on_visibility_changed() -> void:
 
 func simulateItem():
 	var mapSize = map.size
+	print(mapSize)
 	
 	# Clears all of the items to ensure that excess items dont exist
 	for textureRect in map.get_children():

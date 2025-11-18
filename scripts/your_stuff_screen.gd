@@ -64,6 +64,7 @@ var selectedIconIndex: int = -1
 func _on_visibility_changed() -> void:
 	if self.visible:
 		buildItemPanel()
+		get_parent().styleBoxPanel.bg_color = Color("a1c0d7")
 
 # Method that gathers each of the necessary components to create an interactive panel for the user to interact with
 func buildItemPanel() -> void:
@@ -131,21 +132,21 @@ func buildInnerVBoxContainer() -> VBoxContainer:
 	return vboxcontainer
 func buildEditItemIconButtonBuilder(requestedItem: Item) -> Button:
 	var button: Button = Button.new()
-	button.text = "Change Item Icon"
+	button.text = "Change Icon"
 	button.add_theme_font_size_override("font", 25)
 	button.pressed.connect(func(): _on_edit_item_icon_button_pressed(requestedItem))
 	
 	return button
 func buildEditItemNameButtonBuilder(requestedItem: Item) -> Button:
 	var button: Button = Button.new()
-	button.text = "Change Item Name"
+	button.text = "Change Name"
 	button.add_theme_font_size_override("font", 25)
 	button.pressed.connect(func(): _on_edit_item_name_button_pressed(requestedItem))
 	
 	return button
 func buildDeleteButton(requestedItem: Item) -> Button:
 	var button: Button = Button.new()
-	button.text = "Delete Current Item"
+	button.text = "Delete Item"
 	button.add_theme_font_size_override("font", 25)
 	button.pressed.connect(func(): _on_delete_item_button_pressed(requestedItem))
 	
