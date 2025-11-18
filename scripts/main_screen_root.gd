@@ -4,6 +4,7 @@ extends CanvasLayer
 @export var badScreenMode: bool
 @export var validControls: Array[Control]
 @export var signInScreen: Control
+@export var styleBoxPanel: StyleBoxFlat
 
 var currentUser: UserData
 
@@ -39,7 +40,6 @@ func applyWhiteToLabels(node: Control) -> void:
 			child.add_theme_color_override("font_color", Color(1, 1, 1))
 		else:
 			applyWhiteToLabels(child)
-
 
 func _on_red_flower_holder_dropped_flower() -> void:
 	pass # Replace with function body.

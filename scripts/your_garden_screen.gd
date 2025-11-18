@@ -17,6 +17,7 @@ enum PopupType{
 @export var yourSeedsPopup: Panel
 @export var titleText: Label
 @export var infoLabel: Label
+@export var coinCounter: Label
 
 var popupType: PopupType
 
@@ -26,12 +27,14 @@ const SCREEN_CONFIG: Dictionary = {
 		"label_text": "INFORMATION",
 		"info_label_visible": true,
 		"shop_grid_visible": false,
+		"coin_counter_visible": false
 		},
 	PopupType.Shop: 
 		{
 		"label_text": "SHOP",
 		"info_label_visible": false,
 		"shop_grid_visible": true,
+		"coin_counter_visible": true
 		},
 }
 
@@ -67,6 +70,11 @@ func buildPopup() -> void:
 	titleText.text = config["label_text"]
 	infoLabel.visible = config["info_label_visible"]
 	shopGrid.visible = config["shop_grid_visible"]
+	coinCounter.visible = config["coin_counter_visible"]
+
+# Method that updates the coin counter
+func updateCoinCounter():
+	coinCounter.text = str(get_parent().currentUser.gardenGelt)
 
 # Method that rebuilds the garden based on the user's older inputs
 func rebuildGarden():
@@ -115,6 +123,7 @@ func _on_shop_button_pressed() -> void:
 	popupType = PopupType.Shop
 	buildPopup()
 	checkMoneyStatus()
+	updateCoinCounter()
 
 # Method that reacts to the exit button being pressed in the popup. It'll close everything in the popup UI box
 func _on_exit_button_pressed() -> void:
@@ -142,11 +151,11 @@ func _on_buy_button_pressed(typeOfFlower: String) -> void:
 		"Smexy":
 			get_parent().currentUser.seedInventory.append(get_parent().currentUser.FlowerTypes.Smexy)
 	getSeedCount()
+	updateCoinCounter()
 
 # Methods that acts on their respective seeds being placed down. It'll remove an instance from it in the user's
 # inventory and then update the seed counters.
 func _on_red_flower_holder_dropped_flower() -> void:
-	print("Tried")
 	get_parent().currentUser.seedInventory.erase(get_parent().currentUser.FlowerTypes.Red)
 	getSeedCount()
 func _on_blue_flower_holder_dropped_flower() -> void:
