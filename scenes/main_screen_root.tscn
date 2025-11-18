@@ -75,7 +75,6 @@ offset_bottom = 1152.0
 theme_override_styles/panel = ExtResource("2_6bxr5")
 
 [node name="Sign In Screen" type="Control" parent="." node_paths=PackedStringArray("usernameEnterer", "passwordEnterer", "errorLabel", "signInLabel", "signUpForgotPasswordContainer", "logInButton", "mapScreen")]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -816,6 +815,7 @@ flat = true
 expand_icon = true
 
 [node name="Popup UI" type="Panel" parent="Your Garden screen"]
+visible = false
 layout_mode = 0
 offset_left = 120.0
 offset_top = 432.0
